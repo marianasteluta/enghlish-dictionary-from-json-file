@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+<h1>My dictionary</h1>
+<div>
+    <form class="pure-form" method="post" action="/">
+        <label>Search a word:
+            <input type="text" name="word" value="{{ word }}">
+        </label>
+
+        <input type="submit" class="pure-button" value="Search">
+    </form>
+</div>
+<div>
+    {% if definition %}
+    <p>Definition: {{ definition }}!!</p>
+    {% endif %}
+
+    {% if words_close %}
+    <p>Did you mean: {{ words_close }}?</p>
+    {% endif %}
+</div>
+</body>
+</html>
